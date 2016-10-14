@@ -1,0 +1,12 @@
+2016-10-13 13:37:56,219 [      0]  DEBUG - ycat.test.model.Test.getObject - ooo Using Connection [com.mysql.jdbc.JDBC4Connection@212ef4db] 
+2016-10-13 13:37:56,222 [      3]  DEBUG - ycat.test.model.Test.getObject - ==>  Preparing: select * from sam_test where id = ?  
+2016-10-13 13:37:56,239 [     20]  DEBUG - ycat.test.model.Test.getObject - ==> Parameters: 3420609129881829376(Long) 
+2016-10-13 13:37:56,267 [     48]  DEBUG - ycat.test.model.Test.getObject - <==    Columns: id, name, userId 
+2016-10-13 13:37:56,268 [     49]  DEBUG - ycat.test.model.Test.getObject - <==        Row: 3420609129881829376, 王五, 4875121 
+2016-10-13 13:38:30,535 [  34316]  DEBUG - ycat.test.model.Test.selectAll - ooo Using Connection [com.mysql.jdbc.JDBC4Connection@212ef4db] 
+2016-10-13 13:38:30,536 [  34317]  DEBUG - ycat.test.model.Test.selectAll - ==>  Preparing: select * from sam_test  
+2016-10-13 13:38:30,536 [  34317]  DEBUG - ycat.test.model.Test.selectAll - ==> Parameters:  
+2016-10-13 13:38:30,539 [  34320]  DEBUG - ycat.test.model.Test.selectAll - <==    Columns: id, name, userId 
+2016-10-13 13:38:30,540 [  34321]  DEBUG - ycat.test.model.Test.selectAll - <==        Row: 3420573403941208065, 哈哈哈, 123456 
+2016-10-13 13:38:30,540 [  34321]  DEBUG - ycat.test.model.Test.selectAll - <==        Row: 3420576334685962242, 李四, 789456 
+2016-10-13 13:38:30,540 [  34321]  DEBUG - ycat.test.model.Test.selectAll - <==        Row: 3420609129881829376, 王五, 4875121 

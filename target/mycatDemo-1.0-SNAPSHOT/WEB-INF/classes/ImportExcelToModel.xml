@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models>
+	<!-- 患者信息 -->
+	<model id="patientModel" tableName="sam_patient" sequenceKey="" primaryKey="" startline="2">
+		<property name="id_card" column="1" excelTitleName="ICsn" required="false" showHeader="true" columnWidth="12" minLength="" maxLength="30" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="user_name" column="2" excelTitleName="brxm" required="false" showHeader="true" columnWidth="12" minLength="" maxLength="60" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="age" column="3" excelTitleName="nl" required="true" showHeader="true" columnWidth="60" minLength="" maxLength="11" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="gender" column="4" excelTitleName="xb" required="true" showHeader="true" columnWidth="12" minLength="" maxLength="1" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="address" column="5" excelTitleName="address" required="true" showHeader="true" columnWidth="50" minLength="" maxLength="200" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="mobile" column="6" excelTitleName="phone" required="true" showHeader="true" columnWidth="60" minLength="" maxLength="20" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="yes" default="" />
+		<property name="email" column="7" excelTitleName="e_mail" required="true" showHeader="true" columnWidth="50" minLength="" maxLength="50" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="yes" default="" checkEamil="true" />
+		<property name="collectorId" column="8" excelTitleName="sjyh" required="true" showHeader="true" columnWidth="50" minLength="" maxLength="200" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="sensor_id" column="9" excelTitleName="cgqh" required="true" showHeader="true" columnWidth="50" minLength="" maxLength="20" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+	</model>
+	
+	<!-- 患者血糖和事件信息 -->
+	<model id="glycemicAndEventModel" tableName="sam_glycemic" sequenceKey="" primaryKey="" startline="2">
+		<property name="collected_time" column="1" excelTitleName="time" required="false" showHeader="true" columnWidth="12" minLength="" maxLength="60" 
+				  dataType="Date" format="yyyy-MM-dd HH:mm:ss" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="current_value" column="2" excelTitleName="i" required="true" showHeader="true" columnWidth="12" minLength="" maxLength="1" 
+				  dataType="Number" format="#.##" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="insulin_" column="3" excelTitleName="yds" required="true" showHeader="true" columnWidth="60" minLength="" maxLength="11" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="exercised" column="4" excelTitleName="dl" required="true" showHeader="true" columnWidth="60" minLength="" maxLength="20" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="food" column="5" excelTitleName="ysrl" required="true" showHeader="true" columnWidth="50" minLength="" maxLength="50" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="medicine" column="6" excelTitleName="qo" required="true" showHeader="true" columnWidth="12" minLength="" maxLength="1" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="cbxt" column="7" excelTitleName="cbxt" required="true" showHeader="true" columnWidth="60" minLength="" maxLength="20" 
+				  dataType="Number" format="#.##" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="value_" column="8" excelTitleName="cgqxt" required="false" showHeader="true" columnWidth="60" minLength="" maxLength="11" 
+				  dataType="Number" format="#.######" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="meal_type" column="9" excelTitleName="jclb" required="true" showHeader="true" columnWidth="60" minLength="" maxLength="20" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+	</model>
+	
+	<!-- TB患者活动事件信息 -->
+	<model id="eventModel_TB" tableName="sam_event" sequenceKey="" primaryKey="" startline="2">
+		<property name="collected_time" column="1" excelTitleName="time" required="false" showHeader="true" columnWidth="12" minLength="" maxLength="60" 
+				  dataType="Date" format="yyyy-MM-dd HH:mm:ss" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="insulin_" column="2" excelTitleName="yds" required="true" showHeader="true" columnWidth="60" minLength="" maxLength="11" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="exercised" column="3" excelTitleName="dl" required="true" showHeader="true" columnWidth="60" minLength="" maxLength="20" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="food" column="4" excelTitleName="ysrl" required="true" showHeader="true" columnWidth="50" minLength="" maxLength="50" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="medicine" column="5" excelTitleName="qo" required="true" showHeader="true" columnWidth="12" minLength="" maxLength="1" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="cbxt" column="6" excelTitleName="cbxt" required="true" showHeader="true" columnWidth="60" minLength="" maxLength="20" 
+				  dataType="Number" format="#.##" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="meal_type" column="7" excelTitleName="jclb" required="true" showHeader="true" columnWidth="60" minLength="" maxLength="20" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+	</model>
+
+	<!-- TB患者血糖信息 -->
+	<model id="glycemicModel_TB" tableName="sam_glycemic" sequenceKey="" primaryKey="" startline="2">
+		<property name="collected_time" column="1" excelTitleName="时间" required="false" showHeader="true" columnWidth="12" minLength="" maxLength="60" 
+				  dataType="Date" format="yyyy-MM-dd HH:mm:ss" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="current_value" column="2" excelTitleName="i5" required="true" showHeader="true" columnWidth="12" minLength="" maxLength="1" 
+				  dataType="Number" format="#.##" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="value_" column="3" excelTitleName="血糖" required="false" showHeader="true" columnWidth="60" minLength="" maxLength="11" 
+				  dataType="Number" format="#.######" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+	</model>
+	
+	<!-- 3.0患者信息模板 -->
+	<model id="v30PatientModel" tableName="sam_patient" sequenceKey="" primaryKey="" startline="2">
+		<property name="user_name" column="1" excelTitleName="PatientName" required="false" showHeader="true" columnWidth="12" minLength="" maxLength="60" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="id_card" column="2" excelTitleName="IDCard" required="false" showHeader="true" columnWidth="12" minLength="" maxLength="30" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="age" column="3" excelTitleName="Birthday" required="true" showHeader="true" columnWidth="60" minLength="" maxLength="11" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="gender" column="4" excelTitleName="Sex" required="true" showHeader="true" columnWidth="12" minLength="" maxLength="1" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="address" column="5" excelTitleName="FamilyAddress" required="true" showHeader="true" columnWidth="50" minLength="" maxLength="200" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="mobile" column="6" excelTitleName="Phone" required="true" showHeader="true" columnWidth="60" minLength="" maxLength="20" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="email" column="7" excelTitleName="Mail" required="true" showHeader="true" columnWidth="50" minLength="" maxLength="50" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" checkEamil="true" />
+		<property name="CreateTime" column="8" excelTitleName="CreateTime" required="true" showHeader="true" columnWidth="50" minLength="" maxLength="50" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+	</model>
+	
+	<!-- PC客户端数据导入 -->
+	<model id="v30GlycemicModel" tableName="sam_glycemic" sequenceKey="" primaryKey="" startline="2">
+		<property name="id_card" column="1" excelTitleName="idcard" required="false" showHeader="true" columnWidth="12" minLength="" maxLength="30" 
+				  dataType="String" format="" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="collected_time" column="2" excelTitleName="DetectTime" required="false" showHeader="true" columnWidth="12" minLength="" maxLength="60" 
+				  dataType="Date" format="yyyy-MM-dd HH:mm:ss" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="current_value" column="3" excelTitleName="CurrentValue" required="true" showHeader="true" columnWidth="12" minLength="" maxLength="1" 
+				  dataType="Number" format="#.##" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="cbxt" column="4" excelTitleName="ReffGlucose" required="true" showHeader="true" columnWidth="60" minLength="" maxLength="20" 
+				  dataType="Number" format="#.##" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+		<property name="value_" column="5" excelTitleName="GlucoseValue" required="true" showHeader="true" columnWidth="60" minLength="" maxLength="11" 
+				  dataType="Number" format="#.######" codeTableType="" tableName="" queryColumn="" returnColumn="" queryStr="" fixity="no" default="" />
+	</model>
+
+</models>

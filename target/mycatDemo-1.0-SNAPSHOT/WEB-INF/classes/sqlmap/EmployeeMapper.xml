@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mycat.employee.model.Employee">
+
+	<resultMap type="com.mycat.employee.model.Employee" id="employeeResultMap">
+		<result property="id" column="id"/>
+  		<result property="name" column="name"/>
+  		<result property="shardingId" column="sharding_id"/>
+	</resultMap>
+
+    <select id="selectAll" resultMap="employeeResultMap">
+        select * from employee order by id
+    </select>
+
+    <select id="selectSome" parameterType="java.util.Map" resultMap="employeeResultMap">
+        select * from employee limit #{offset},#{limit}
+    </select>
+
+    <select id="getObject" resultMap="employeeResultMap" parameterType="java.lang.Object">
+        select * from employee where id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.mycat.employee.model.Employee">
+        INSERT INTO employee(
+        id,
+        name,
+        sharding_id
+        )
+        VALUES(#{id},
+            #{name,jdbcType=VARCHAR},
+            #{shardingId,jdbcType=INTEGER}
+        )
+    </insert>
+
+    <update id="update" parameterType="com.mycat.employee.model.Employee">
+        update employee
+        <set>
+            <if test="name != null and name != ''">
+            name = #{name},
+            </if>
+            <if test="shardingId != null">
+            sharding_id = #{shardingId},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Object">
+        delete from employee where id = #{id}
+    </delete>
+
+    <select id="findOneByMap" resultMap="employeeResultMap">
+        select * from employee where 1=1 AND
+        <foreach item="param" index="key" collection="list"  open="" separator="AND" close="">
+            ${param.name} = #{param.value}
+        </foreach>
+        limit 0, 1
+    </select>
+
+    <select id="findOneByObject" parameterType="com.mycat.employee.model.Employee" resultMap="employeeResultMap">
+        select * from employee
+        <where>
+                <if test="name != null">
+                    and name=#{name}
+                </if>
+                <if test="shardingId != null">
+                    and sharding_id=#{shardingId}
+                </if>
+        </where>
+        limit 0, 1
+    </select>
+
+    <select id="findByMap" resultMap="employeeResultMap">
+        select * from  employee where 1=1 AND
+        <foreach item="param" index="key" collection="list"  open="" separator="AND" close="">
+            ${param.name} = #{param.value}
+        </foreach>
+    </select>
+
+    <select id="findByObject" parameterType="com.mycat.employee.model.Employee" resultMap="employeeResultMap">
+        select * from employee
+        <where>
+            <if test="name != null">
+                and name=#{name}
+            </if>
+            <if test="shardingId != null">
+                and sharding_id=#{shardingId}
+            </if>
+        </where>
+    </select>
+
+    <select id="findByIn" resultMap="employeeResultMap">
+        select * from employee where 1=1 AND
+        <foreach item="param" index="key" collection="list"  open="" separator="AND" close="">
+            ${param.name} IN (#{param.value})
+        </foreach>
+    </select>
+
+    <select id="findByLike" resultMap="employeeResultMap">
+        select * from employee where 1=1 AND
+        <foreach item="param" index="key" collection="list"  open="" separator="AND" close="">
+            ${param.name} LIKE #{param.value}
+        </foreach>
+    </select>
+
+    <select id="getTotalCount" resultType="int">
+        select count(1) from employee
+    </select>
+
+    <select id="getCount" parameterType="java.util.Map" resultType="int">
+        select count(1) from employee where 1=1
+        <if test="whereClause != null">
+        ${whereClause}
+        </if>
+    </select>
+
+    <select id="query" parameterType="java.util.Map" resultMap="employeeResultMap">
+        select ${fieldsClause} from employee where 1=1
+        <if test="whereClause != null">
+        ${whereClause}
+        </if>
+        <if test="orderClause != null">
+        ${orderClause}
+        </if>
+        limit ${limit} offset ${offset}
+    </select>
+
+</mapper>
